@@ -1,6 +1,6 @@
 import React from "react";
-import StarRating from "./StarRating";
-import { FaTrash } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa"; // Иконка для удаления
+import StarRating from "./StarRating"; // Импортируем компонент для рейтинга
 
 export default function Color({
   id,
@@ -8,6 +8,7 @@ export default function Color({
   color,
   rating,
   onRemove = (f) => f,
+  onRate = (f) => f,
 }) {
   return (
     <section>
@@ -16,7 +17,10 @@ export default function Color({
         <FaTrash />
       </button>
       <div style={{ height: 50, backgroundColor: color }} />
-      <StarRating selectedStars={rating} />
+      <StarRating
+        selectedStars={rating}
+        onRate={(rating) => onRate(id, rating)}
+      />
     </section>
   );
 }
