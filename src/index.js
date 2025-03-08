@@ -3,7 +3,7 @@ import colors from "./color-data.json"; // Убедись, что этот фа�
 import ReactDOM from "react-dom/client"; // Импортируем createRoot
 import App from "./App";
 
-export const ColorContext = createContext(); // Создаем контекст
+export const ColorContext = createContext(); // создаем контекст
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
