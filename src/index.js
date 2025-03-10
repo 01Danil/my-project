@@ -1,15 +1,13 @@
-import React, { createContext } from "react";
-import colors from "./color-data.json"; // Убедись, что этот файл существует и правильно импортируется
-import ReactDOM from "react-dom/client"; // Импортируем createRoot
+import React from "react";
+import ReactDOM from "react-dom/client";
 import App from "./App";
-
-export const ColorContext = createContext(); // создаем контекст
+import { ColorProvider } from "./color-hooks.js"; // ✅ Импортируем ColorProvider из color-hooks.js
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <ColorContext.Provider value={{ colors }}>
+    <ColorProvider>
       <App />
-    </ColorContext.Provider>
+    </ColorProvider>
   </React.StrictMode>
 );

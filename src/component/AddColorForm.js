@@ -1,13 +1,15 @@
 import React from "react";
 import { useInput } from "./UseInput";
+import { useColors } from "../color-hooks";
 
-export default function AddColorForm({ onNewColor = (f) => f }) {
+export default function AddColorForm() {
   const [titleProps, resetTitle] = useInput("");
   const [colorProps, resetColor] = useInput("#000000");
+  const { addColor } = useColors();
 
-  const submit = (event) => {
-    event.preventDefault();
-    onNewColor(titleProps.value, colorProps.value);
+  const submit = (e) => {
+    e.preventDefault();
+    addColor(titleProps.value, colorProps.value);
     resetTitle();
     resetColor();
   };
